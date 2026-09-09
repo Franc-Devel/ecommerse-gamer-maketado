@@ -32,7 +32,7 @@ const Wishlist = ({ juegos }) => {
     <Container className="py-5">
       <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
         <div>
-          <span className="epic-subheading mb-1 d-block">MI CUENTA • EPIC GAMES</span>
+          <span className="epic-subheading mb-1 d-block">MI CUENTA • ROLLING GAMER</span>
           <h1 className="fs-2 fw-bold text-white mb-0">
             Lista de Deseos
           </h1>
@@ -61,37 +61,37 @@ const Wishlist = ({ juegos }) => {
               <Col lg={12} key={juego.id}>
                 <Card className="epic-box p-3 border-0">
                   <div className="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
-                    <div className="d-flex align-items-center gap-3">
+                    <div className="d-flex align-items-center gap-2 gap-sm-3">
                       <img
                         src={juego.imagen}
                         alt={juego.nombre}
                         className="rounded object-fit-cover flex-shrink-0"
-                        style={{ width: "120px", height: "80px" }}
+                        style={{ width: "90px", height: "65px" }}
                         onError={(e) => {
                           e.target.src = "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80";
                         }}
                       />
-                      <div>
-                        <span className="epic-subheading d-block mb-1" style={{ fontSize: "0.68rem" }}>
+                      <div className="overflow-hidden">
+                        <span className="epic-subheading d-block mb-1 text-truncate" style={{ fontSize: "0.68rem" }}>
                           JUEGO BASE • {juego.categoria}
                         </span>
-                        <h5 className="text-white fw-bold mb-1">
+                        <h5 className="text-white fw-bold mb-1 text-truncate">
                           <Link to={`/detalle/${juego.id}`} className="text-white text-decoration-none hover-white">
                             {juego.nombre}
                           </Link>
                         </h5>
-                        <div className="text-muted small" style={{ fontSize: "0.8rem" }}>
+                        <div className="text-muted small text-truncate" style={{ fontSize: "0.78rem" }}>
                           Desarrollador: {juego.desarrollador}
                         </div>
                       </div>
                     </div>
 
-                    <div className="d-flex align-items-center justify-content-between justify-content-md-end gap-3 border-top border-secondary border-opacity-25 pt-2 pt-md-0">
-                      <div className="text-end">
+                    <div className="d-flex flex-wrap align-items-center justify-content-between justify-content-md-end gap-2 border-top border-secondary border-opacity-25 pt-2 pt-md-0">
+                      <div className="text-start text-md-end">
                         {juego.descuento > 0 && (
-                          <div className="d-flex align-items-center gap-2 justify-content-end mb-1">
+                          <div className="d-flex align-items-center gap-2 justify-content-start justify-content-md-end mb-1">
                             <span className="epic-badge-discount">-{juego.descuento}%</span>
-                            <span className="text-muted text-decoration-line-through small">
+                            <span className="text-muted text-decoration-line-through small" style={{ fontSize: "0.75rem" }}>
                               ${Number(juego.precio).toLocaleString("es-AR")}
                             </span>
                           </div>
@@ -131,7 +131,7 @@ const Wishlist = ({ juegos }) => {
           <i className="bi bi-heart text-muted display-4 mb-3 d-block"></i>
           <h4 className="fw-bold text-white mb-2">Tu lista de deseos está vacía</h4>
           <p className="text-muted small mb-4">
-            Explora la tienda de Epic Games y pulsa el botón (+) para añadir juegos a tu lista.
+            Explora la tienda de ROLLING GAMER y pulsa el botón (+) para añadir juegos a tu lista.
           </p>
           <Link to="/" className="btn-epic-primary">
             Explorar Juegos

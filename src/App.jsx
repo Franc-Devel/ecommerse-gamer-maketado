@@ -12,6 +12,7 @@ import Wishlist from "./components/pages/Wishlist";
 import About from "./components/pages/About";
 import Error404 from "./components/pages/Error404";
 import { AuthProvider } from "./context/AuthContext";
+import { UIModalProvider } from "./context/UIModalContext";
 import juegosIniciales from "./data/juegosIniciales";
 
 function App() {
@@ -88,82 +89,84 @@ function App() {
 
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Menu />
-        <main className="container-fluid px-3 px-md-4 my-3">
-          <Routes>
-            {/* Rutas Públicas */}
-            <Route path="/" element={<Inicio juegos={productos} />} />
-            <Route
-              path="/detalle/:id"
-              element={
-                <DetalleDeProducto
-                  buscarProducto={buscarProducto}
-                  agregarResena={agregarResena}
-                />
-              }
-            />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<Login />} />
-
-            {/* Lista de Deseos (Usuario Autenticado) */}
-            <Route
-              path="/wishlist"
-              element={
-                <RutaProtegida>
-                  <Wishlist juegos={productos} />
-                </RutaProtegida>
-              }
-            />
-
-            {/* Rutas Protegidas de Administración (Solo Rol Admin) */}
-            <Route
-              path="/admin"
-              element={
-                <RutaProtegida soloAdmin={true}>
-                  <Administrador
-                    productos={productos}
-                    setProductos={setProductos}
-                    borrarProducto={borrarProducto}
-                  />
-                </RutaProtegida>
-              }
-            />
-            {/* Redirección de compatibilidad para /administrador */}
-            <Route path="/administrador" element={<Navigate to="/admin" replace />} />
-
-            <Route
-              path="/crear"
-              element={
-                <RutaProtegida soloAdmin={true}>
-                  <FormularioProducto
-                    titulo="Crear Videojuego"
-                    crearProducto={crearProducto}
-                  />
-                </RutaProtegida>
-              }
-            />
-
-            <Route
-              path="/editar/:id"
-              element={
-                <RutaProtegida soloAdmin={true}>
-                  <FormularioProducto
-                    titulo="Editar Videojuego"
+      <UIModalProvider>
+        <BrowserRouter>
+          <Menu />
+          <main className="container-fluid px-3 px-md-4 my-3">
+            <Routes>
+              {/* Rutas Públicas */}
+              <Route path="/" element={<Inicio juegos={productos} />} />
+              <Route
+                path="/detalle/:id"
+                element={
+                  <DetalleDeProducto
                     buscarProducto={buscarProducto}
-                    modificarProducto={modificarProducto}
+                    agregarResena={agregarResena}
                   />
-                </RutaProtegida>
-              }
-            />
+                }
+              />
+              <Route path="/about" element={<About />} />
+              <Route path="/login" element={<Login />} />
 
-            {/* Página de Error 404 Personalizada */}
-            <Route path="/404" element={<Error404 />} />
-            <Route path="*" element={<Error404 />} />
-          </Routes>
-        </main>
-        <Footer />
-      </BrowserRouter>
+              {/* Lista de Deseos (Usuario Autenticado) */}
+              <Route
+                path="/wishlist"
+                element={
+                  <RutaProtegida>
+                    <Wishlist juegos={productos} />
+                  </RutaProtegida>
+                }
+              />
+
+              {/* Rutas Protegidas de Administración (Solo Rol Admin) */}
+              <Route
+                path="/admin"
+                element={
+                  <RutaProtegida soloAdmin={true}>
+                    <Administrador
+                      productos={productos}
+                      setProductos={setProductos}
+                      borrarProducto={borrarProducto}
+                    />
+                  </RutaProtegida>
+                }
+              />
+              {/* Redirección de compatibilidad para /administrador */}
+              <Route path="/administrador" element={<Navigate to="/admin" replace />} />
+
+              <Route
+                path="/crear"
+                element={
+                  <RutaProtegida soloAdmin={true}>
+                    <FormularioProducto
+                      titulo="Crear Videojuego"
+                      crearProducto={crearProducto}
+                    />
+                  </RutaProtegida>
+                }
+              />
+
+              <Route
+                path="/editar/:id"
+                element={
+                  <RutaProtegida soloAdmin={true}>
+                    <FormularioProducto
+                      titulo="Editar Videojuego"
+                      buscarProducto={buscarProducto}
+                      modificarProducto={modificarProducto}
+                    />
+                  </RutaProtegida>
+                }
+              />
+
+              {/* Página de Error 404 Personalizada */}
+              <Route path="/404" element={<Error404 />} />
+              <Route path="*" element={<Error404 />} />
+            </Routes>
+          </main>
+          <Footer />
+        </BrowserRouter>
+      </UIModalProvider>
     </AuthProvider>
   );
 }

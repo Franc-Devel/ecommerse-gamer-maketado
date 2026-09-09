@@ -21,7 +21,7 @@ const CardJuego = ({ juego }) => {
 
     if (!usuarioActual) {
       Swal.fire({
-        title: "Iniciar sesión en Epic Games",
+        title: "Iniciar sesión en ROLLING GAMER",
         text: "Inicia sesión con tu cuenta para guardar títulos en tu lista de deseos.",
         icon: "info",
         showCancelButton: true,
@@ -104,24 +104,26 @@ const CardJuego = ({ juego }) => {
             </div>
 
             {/* Epic Pricing row */}
-            <div className="mt-auto pt-1 d-flex align-items-center gap-2">
+            <div className="mt-auto pt-1 d-flex flex-wrap align-items-baseline justify-content-between gap-1">
               {tieneDescuento ? (
                 <>
-                  <span className="epic-badge-discount">
-                    -{juego.descuento}%
-                  </span>
-                  <span
-                    className="text-muted text-decoration-line-through small"
-                    style={{ fontSize: "0.8rem" }}
-                  >
-                    ${Number(juego.precio).toLocaleString("es-AR")}
-                  </span>
-                  <span className="text-white fw-bold small ms-auto">
+                  <div className="d-flex align-items-center gap-1">
+                    <span className="epic-badge-discount" style={{ fontSize: "0.7rem", padding: "2px 5px" }}>
+                      -{juego.descuento}%
+                    </span>
+                    <span
+                      className="text-muted text-decoration-line-through small"
+                      style={{ fontSize: "0.72rem" }}
+                    >
+                      ${Number(juego.precio).toLocaleString("es-AR")}
+                    </span>
+                  </div>
+                  <span className="text-white fw-bold small ms-auto" style={{ fontSize: "0.85rem" }}>
                     ${Number(precioFinal).toLocaleString("es-AR")}
                   </span>
                 </>
               ) : (
-                <span className="text-white fw-bold small ms-auto">
+                <span className="text-white fw-bold small ms-auto" style={{ fontSize: "0.85rem" }}>
                   ${Number(juego.precio).toLocaleString("es-AR")}
                 </span>
               )}

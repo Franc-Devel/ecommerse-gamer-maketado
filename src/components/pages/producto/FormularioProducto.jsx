@@ -100,7 +100,7 @@ const FormularioProducto = ({ titulo, crearProducto, buscarProducto, modificarPr
 
       if (crearProducto(datosJuego)) {
         Swal.fire({
-          title: "¡Publicado en Epic Games Store!",
+          title: "¡Publicado en ROLLING GAMER!",
           text: `"${datosJuego.nombre}" ha sido añadido con éxito.`,
           icon: "success",
           confirmButtonColor: "#0078f2"
@@ -131,7 +131,7 @@ const FormularioProducto = ({ titulo, crearProducto, buscarProducto, modificarPr
       <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
         <div>
           <span className="epic-subheading mb-1 d-block text-warning">
-            PORTAL DE PUBLICACIÓN • EPIC GAMES
+            PORTAL DE PUBLICACIÓN • ROLLING GAMER
           </span>
           <h1 className="fs-2 fw-bold text-white mb-0">
             {titulo}
@@ -387,17 +387,17 @@ const FormularioProducto = ({ titulo, crearProducto, buscarProducto, modificarPr
             </Col>
           </Row>
 
-          <div className="d-flex justify-content-end gap-2 pt-3 border-top border-secondary border-opacity-25">
+          <div className="d-flex flex-column-reverse flex-sm-row justify-content-end gap-2 pt-3 border-top border-secondary border-opacity-25">
             <Button
               as={Link}
               to="/admin"
-              className="btn-epic-secondary"
+              className="btn-epic-secondary w-100 w-sm-auto text-center"
             >
               Cancelar
             </Button>
             <Button
               type="submit"
-              className="btn-epic-primary px-4"
+              className="btn-epic-primary px-4 w-100 w-sm-auto text-center"
             >
               {titulo === "Crear Videojuego" ? "PUBLICAR JUEGO EN LA TIENDA" : "GUARDAR CAMBIOS"}
             </Button>

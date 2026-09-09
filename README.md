@@ -1,4 +1,4 @@
-# 🎮 Epic Games Store (Rolling Edition) | Tienda & Catálogo de Videojuegos
+# 🎮 ROLLING GAMER | Tienda & Catálogo de Videojuegos
 
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -6,7 +6,7 @@
 [![React_Router](https://img.shields.io/badge/React_Router-v8-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com/)
 [![Status](https://img.shields.io/badge/RollingCode_School-Cohorte_9P-red)](#)
 
-Plataforma web profesional inspirada en el diseño, estética y funcionalidades de **Epic Games Store**, desarrollada con **React 19**, **Vite**, **Bootstrap 5** y **React Router**. Cuenta con el carrusel cinematográfico característico de Epic con selector lateral, catálogo de más de 20 títulos, fichas de producto con especificaciones técnicas, sistema de reseñas y panel de administración protegido.
+Plataforma web profesional **ROLLING GAMER**, desarrollada con **React 19**, **Vite**, **Bootstrap 5** y **React Router**. Cuenta con carrusel cinematográfico con selector lateral, catálogo de más de 20 títulos, fichas de producto con especificaciones técnicas, sistema de reseñas y panel de administración protegido.
 
 ---
 
@@ -23,7 +23,7 @@ Plataforma web profesional inspirada en el diseño, estética y funcionalidades 
 
 ## 📖 Descripción del Proyecto
 
-Rolling Games es una solución e-commerce moderna para gamers que ofrece:
+ROLLING GAMER es una solución e-commerce moderna para gamers que ofrece:
 - **Catálogo digital de más de 20 títulos AAA e Indies** precargados con datos reales, precios, géneros, capturas y requisitos de sistema.
 - **Buscador en tiempo real** por título, desarrollador y género.
 - **Filtros por categoría** (RPG, Acción, Aventura, Terror, Simulación, Deportes, Indie) y opciones de ordenamiento por precio y satisfacción.
@@ -159,4 +159,4 @@ El proyecto incluye el archivo `public/_redirects` para garantizar que el enruta
 
 ---
 
-© 2025 **Rolling Games** - Proyecto Educativo para RollingCode School.
+© 2025 **ROLLING GAMER** - Proyecto Educativo para RollingCode School.

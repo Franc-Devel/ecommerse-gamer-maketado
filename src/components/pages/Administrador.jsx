@@ -31,7 +31,7 @@ const Administrador = ({ productos, setProductos, borrarProducto }) => {
   const restablecerCatalogoOriginal = () => {
     Swal.fire({
       title: "¿Restablecer catálogo oficial?",
-      text: `Esta acción recargará los ${juegosIniciales.length} videojuegos originales de Epic Games Store.`,
+      text: `Esta acción recargará los ${juegosIniciales.length} videojuegos originales de ROLLING GAMER.`,
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#0078f2",
@@ -96,7 +96,7 @@ const Administrador = ({ productos, setProductos, borrarProducto }) => {
       <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
         <div>
           <span className="epic-subheading mb-1 d-block text-warning">
-            <i className="bi bi-shield-check me-1"></i> PORTAL DE DESARROLLADOR • EPIC GAMES
+            <i className="bi bi-shield-check me-1"></i> PORTAL DE DESARROLLADOR • ROLLING GAMER
           </span>
           <h1 className="fs-2 fw-bold text-white mb-1">
             Panel de Administración
@@ -106,12 +106,12 @@ const Administrador = ({ productos, setProductos, borrarProducto }) => {
           </p>
         </div>
 
-        <div className="d-flex gap-2">
-          <Link to="/crear" className="btn-epic-primary">
+        <div className="d-flex flex-wrap gap-2 w-100 w-md-auto">
+          <Link to="/crear" className="btn-epic-primary flex-grow-1 flex-md-grow-0 justify-content-center">
             <i className="bi bi-plus-lg me-1"></i> PUBLICAR JUEGO
           </Link>
           <Button
-            className="btn-epic-secondary"
+            className="btn-epic-secondary flex-grow-1 flex-md-grow-0 justify-content-center"
             onClick={restablecerCatalogoOriginal}
             title="Recargar catálogo de 22 videojuegos"
           >
@@ -120,32 +120,32 @@ const Administrador = ({ productos, setProductos, borrarProducto }) => {
         </div>
       </div>
 
-      {/* Metrics Row */}
-      <Row className="g-3 mb-4">
-        <Col sm={6} lg={3}>
-          <div className="epic-box p-3">
-            <span className="epic-subheading d-block mb-1">Total Juegos</span>
+      {/* Metrics Row (2x2 grid on mobile phones, 4x1 on desktop) */}
+      <Row className="g-2 g-sm-3 mb-4">
+        <Col xs={6} lg={3}>
+          <div className="epic-box p-3 h-100">
+            <span className="epic-subheading d-block mb-1 text-truncate">Total Juegos</span>
             <div className="fs-3 fw-bold text-white">{productos.length}</div>
           </div>
         </Col>
 
-        <Col sm={6} lg={3}>
-          <div className="epic-box p-3">
-            <span className="epic-subheading d-block mb-1">Usuarios Registrados</span>
+        <Col xs={6} lg={3}>
+          <div className="epic-box p-3 h-100">
+            <span className="epic-subheading d-block mb-1 text-truncate">Usuarios</span>
             <div className="fs-3 fw-bold text-white">{usuarios.length}</div>
           </div>
         </Col>
 
-        <Col sm={6} lg={3}>
-          <div className="epic-box p-3">
-            <span className="epic-subheading d-block mb-1">Categorías</span>
+        <Col xs={6} lg={3}>
+          <div className="epic-box p-3 h-100">
+            <span className="epic-subheading d-block mb-1 text-truncate">Categorías</span>
             <div className="fs-3 fw-bold text-white">{categoriasUnicas.length}</div>
           </div>
         </Col>
 
-        <Col sm={6} lg={3}>
-          <div className="epic-box p-3">
-            <span className="epic-subheading d-block mb-1">Valor de Inventario</span>
+        <Col xs={6} lg={3}>
+          <div className="epic-box p-3 h-100">
+            <span className="epic-subheading d-block mb-1 text-truncate">Inventario</span>
             <div className="fs-4 fw-bold text-white text-truncate">
               ${valorTotalInventario.toLocaleString("es-AR")}
             </div>

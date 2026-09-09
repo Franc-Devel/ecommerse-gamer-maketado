@@ -32,7 +32,7 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
           <i className="bi bi-controller text-muted display-3 mb-3 d-block"></i>
           <h2 className="text-white fw-bold">Juego no encontrado</h2>
           <p className="text-muted mb-4">
-            El título solicitado no se encuentra disponible en la base de datos de Epic Games Store.
+            El título solicitado no se encuentra disponible en la base de datos de ROLLING GAMER.
           </p>
           <Link to="/" className="btn-epic-primary">
             Volver a la Tienda
@@ -59,7 +59,7 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
   const handleWishlist = () => {
     if (!usuarioActual) {
       Swal.fire({
-        title: "Iniciar sesión en Epic Games",
+        title: "Iniciar sesión en ROLLING GAMER",
         text: "Inicia sesión con tu cuenta para agregar este juego a tu lista de deseos.",
         icon: "info",
         showCancelButton: true,
@@ -93,7 +93,7 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
   const handleComprar = () => {
     Swal.fire({
       title: "¡Pedido completado!",
-      text: `Gracias por tu compra de "${juego.nombre}". El juego se ha añadido a tu biblioteca de Epic Games Store.`,
+      text: `Gracias por tu compra de "${juego.nombre}". El juego se ha añadido a tu biblioteca de ROLLING GAMER.`,
       icon: "success",
       confirmButtonColor: "#0078f2",
       confirmButtonText: "Ir a la Biblioteca"
@@ -128,7 +128,7 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
 
     Swal.fire({
       title: "Reseña Publicada",
-      text: "Tu valoración ha sido registrada en las opiniones de la comunidad de Epic Games.",
+      text: "Tu valoración ha sido registrada en las opiniones de la comunidad de ROLLING GAMER.",
       icon: "success",
       confirmButtonColor: "#0078f2",
       timer: 1800,
@@ -151,19 +151,18 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
 
       {/* Header Info */}
       <div className="mb-4">
-        <h1 className="display-5 fw-extrabold text-white mb-2" style={{ letterSpacing: "-1px" }}>
+        <h1 className="fs-2 fs-md-1 fw-extrabold text-white mb-2" style={{ letterSpacing: "-0.5px" }}>
           {juego.nombre}
         </h1>
-        <div className="d-flex flex-wrap align-items-center gap-3 text-muted small">
-          <span>Desarrollador: <strong className="text-white">{juego.desarrollador}</strong></span>
-          <span>•</span>
-          <span>Editor: <strong className="text-white">{juego.editor || juego.desarrollador}</strong></span>
-          <span>•</span>
-          <span>Lanzamiento: <strong className="text-white">{juego.fechaLanzamiento || "2024"}</strong></span>
-          <span>•</span>
-          <span className="badge bg-dark border border-secondary text-secondary">
+        <div className="d-flex flex-wrap align-items-center gap-2 text-muted small">
+          <span className="text-secondary">Desarrollador: <strong className="text-white">{juego.desarrollador}</strong></span>
+          <span className="d-none d-sm-inline text-secondary">•</span>
+          <span className="text-secondary">Editor: <strong className="text-white">{juego.editor || juego.desarrollador}</strong></span>
+          <span className="d-none d-sm-inline text-secondary">•</span>
+          <span className="text-secondary">Lanzamiento: <strong className="text-white">{juego.fechaLanzamiento || "2024"}</strong></span>
+          <Badge bg="dark" className="border border-secondary text-secondary ms-sm-1">
             {juego.categoria}
-          </span>
+          </Badge>
         </div>
       </div>
 
@@ -185,7 +184,7 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
 
           {/* Thumbnail strip */}
           {imagenes.length > 1 && (
-            <div className="d-flex gap-2 mb-4 overflow-auto pb-2">
+            <div className="d-flex gap-2 mb-4 overflow-auto pb-2" style={{ scrollbarWidth: "thin" }}>
               {imagenes.map((img, idx) => (
                 <button
                   key={idx}
@@ -193,7 +192,7 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
                   className={`btn p-0 rounded overflow-hidden flex-shrink-0 ${
                     imagenMostrada === img ? "border border-2 border-primary" : "opacity-75"
                   }`}
-                  style={{ width: "110px", height: "65px", background: "#000" }}
+                  style={{ width: "95px", height: "58px", background: "#000" }}
                   onClick={() => setImagenActiva(img)}
                 >
                   <img src={img} alt="Captura" className="w-100 h-100 object-fit-cover" />
@@ -201,6 +200,44 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
               ))}
             </div>
           )}
+
+          {/* Mobile-Only Quick Purchase Card (Directly visible on phones without scrolling past reviews) */}
+          <div className="epic-box p-3 mb-4 d-block d-lg-none">
+            <span className="epic-subheading d-block mb-2">JUEGO BASE • DISPONIBLE YA</span>
+            <div className="d-flex align-items-center gap-2 mb-3">
+              {tieneDescuento && (
+                <span className="epic-badge-discount fs-6">
+                  -{juego.descuento}%
+                </span>
+              )}
+              <div className="d-flex align-items-baseline gap-2">
+                <span className="fs-3 fw-bold text-white">
+                  ${Number(precioFinal).toLocaleString("es-AR")}
+                </span>
+                {tieneDescuento && (
+                  <span className="text-muted text-decoration-line-through small">
+                    ${Number(juego.precio).toLocaleString("es-AR")}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="d-grid gap-2">
+              <Button
+                onClick={handleComprar}
+                className="btn-epic-primary py-2 fw-bold"
+              >
+                COMPRAR AHORA
+              </Button>
+              <Button
+                onClick={handleWishlist}
+                className="btn-epic-secondary py-2"
+              >
+                <i className={`bi ${enDeseos ? "bi-heart-fill text-danger me-2" : "bi-plus-lg me-2"}`}></i>
+                {enDeseos ? "EN TU LISTA DE DESEOS" : "AÑADIR A LA LISTA DE DESEOS"}
+              </Button>
+            </div>
+          </div>
 
           {/* Game Description */}
           <div className="epic-box p-4 mb-4">
@@ -306,7 +343,7 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
             {/* Submit review */}
             <div className="p-3 rounded bg-dark border border-secondary border-opacity-25 mb-4">
               <h5 className="fs-6 fw-bold text-white mb-2">
-                ¿Recomiendas este juego en Epic Games?
+                ¿Recomiendas este juego en ROLLING GAMER?
               </h5>
 
               {usuarioActual ? (
@@ -357,7 +394,7 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
               ) : (
                 <div className="text-center py-2">
                   <p className="text-muted small mb-2">
-                    Inicia sesión en tu cuenta de Epic Games Store para dejar tu reseña.
+                    Inicia sesión en tu cuenta de ROLLING GAMER para dejar tu reseña.
                   </p>
                   <Link to="/login" className="btn-epic-secondary py-1 px-3 small">
                     Iniciar Sesión
@@ -384,8 +421,8 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
           </div>
         </Col>
 
-        {/* Right Sidebar: Epic Games Purchase Card */}
-        <Col lg={4}>
+        {/* Right Sidebar: Epic Games Purchase Card (Desktop and Tablet Landscape) */}
+        <Col lg={4} className="d-none d-lg-block">
           <div className="sticky-top" style={{ top: "85px" }}>
             <div className="epic-box p-4 mb-3">
               <span className="epic-subheading d-block mb-3">
@@ -460,7 +497,7 @@ const DetalleDeProducto = ({ buscarProducto, agregarResena }) => {
 
             {/* Epic Refund Policy Box */}
             <div className="epic-box p-3 small text-muted">
-              <div className="text-white fw-bold mb-1">Reembolsos de Epic Games</div>
+              <div className="text-white fw-bold mb-1">Reembolsos de ROLLING GAMER</div>
               Los juegos son aptos para reembolso hasta 14 días después de la compra si tienen menos de 2 horas jugadas.
             </div>
           </div>

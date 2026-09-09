@@ -6,7 +6,7 @@ const ItemProducto = ({ itemProducto, fila, borrarProducto }) => {
   const eliminarJuego = () => {
     Swal.fire({
       title: "¿Eliminar videojuego?",
-      html: `¿Estás seguro de que deseas retirar <strong>${itemProducto.nombre}</strong> del catálogo de Epic Games Store?`,
+      html: `¿Estás seguro de que deseas retirar <strong>${itemProducto.nombre}</strong> del catálogo de ROLLING GAMER?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#0078f2",

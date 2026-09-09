@@ -11,7 +11,7 @@ const MIEMBROS = [
   {
     nombre: "Franco Triviño",
     rol: "Scrum Master & Frontend Developer",
-    descripcion: "Facilitador del marco ágil Scrum, responsable del backlog y sprints en Trello, recreación visual inspirada en Epic Games Store, validación de formularios y experiencia de usuario.",
+    descripcion: "Facilitador del marco ágil Scrum, responsable del backlog y sprints en Trello, desarrollo e interfaz de ROLLING GAMER, validación de formularios y experiencia de usuario.",
     imagen: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
     habilidades: ["Scrum Master", "Trello Ágil", "CSS3 / Bootstrap 5", "UI/UX Design", "Testing"]
   }
@@ -25,11 +25,11 @@ const About = () => {
         <span className="epic-subheading mb-2 d-block text-primary" style={{ color: "#0078f2" }}>
           EQUIPO DE DESARROLLO • ROLLINGCODE SCHOOL
         </span>
-        <h1 className="display-4 fw-extrabold text-white mb-3" style={{ letterSpacing: "-1px" }}>
-          Detrás de Epic Games Store (Rolling Edition)
+        <h1 className="fs-2 fs-md-1 fw-extrabold text-white mb-3" style={{ letterSpacing: "-0.5px" }}>
+          Detrás de ROLLING GAMER
         </h1>
         <p className="text-muted lead max-w-2xl mx-auto" style={{ maxWidth: "720px", fontSize: "1.05rem" }}>
-          Proyecto desarrollado exclusivamente por <strong>Francisco Delgado</strong> y <strong>Franco Triviño</strong> para el módulo de React en RollingCode School, replicando la experiencia de usuario y diseño de Epic Games Store.
+          Proyecto desarrollado exclusivamente por <strong>Francisco Delgado</strong> y <strong>Franco Triviño</strong> para el módulo de React en RollingCode School, implementando la plataforma de videojuegos ROLLING GAMER.
         </p>
       </div>
 
@@ -83,7 +83,7 @@ const About = () => {
               Organización Ágil (Scrum & Trello)
             </h4>
             <p className="text-muted small mb-3">
-              Bajo el liderazgo de <strong>Franco Triviño (Scrum Master)</strong> y <strong>Francisco Delgado (Team Leader)</strong>, el equipo implementó Scrum con sprints iterativos para cubrir los requisitos del catálogo, persistencia, seguridad de rutas y el diseño temático de Epic Games.
+              Bajo el liderazgo de <strong>Franco Triviño (Scrum Master)</strong> y <strong>Francisco Delgado (Team Leader)</strong>, el equipo implementó Scrum con sprints iterativos para cubrir los requisitos del catálogo, persistencia, seguridad de rutas y el diseño temático de ROLLING GAMER.
             </p>
             <div className="d-flex flex-wrap gap-2 mb-4">
               <span className="badge bg-dark border border-secondary text-secondary">Sprint Planning</span>
@@ -95,7 +95,7 @@ const About = () => {
               href="https://trello.com"
               target="_blank"
               rel="noreferrer"
-              className="btn-epic-secondary py-2 px-3 small"
+              className="btn-epic-secondary py-2 px-3 small w-100 w-sm-auto text-center"
             >
               <i className="bi bi-kanban me-2"></i> Abrir Tablero de Trello del Proyecto
             </a>

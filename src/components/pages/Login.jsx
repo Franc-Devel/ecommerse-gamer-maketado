@@ -49,7 +49,7 @@ const Login = () => {
     if (res.success) {
       Swal.fire({
         title: `¡Hola, ${res.user.nombre}!`,
-        text: res.user.rol === "admin" ? "Has iniciado sesión con permisos de Administrador" : "Sesión iniciada en Epic Games Store",
+        text: res.user.rol === "admin" ? "Has iniciado sesión con permisos de Administrador" : "Sesión iniciada en ROLLING GAMER",
         icon: "success",
         confirmButtonColor: "#0078f2",
         timer: 1800,
@@ -99,8 +99,8 @@ const Login = () => {
     const res = register(regNombre, regEmail, regPassword);
     if (res.success) {
       Swal.fire({
-        title: "¡Cuenta Epic Games Creada!",
-        text: `Bienvenido a la comunidad de Epic Games, ${res.user.nombre}.`,
+        title: "¡Cuenta ROLLING GAMER Creada!",
+        text: `Bienvenido a la comunidad de ROLLING GAMER, ${res.user.nombre}.`,
         icon: "success",
         confirmButtonColor: "#0078f2",
         timer: 1800,
@@ -113,7 +113,7 @@ const Login = () => {
   };
 
   return (
-    <Container className="py-5">
+    <Container className="py-4 py-sm-5 px-3">
       <Row className="justify-content-center">
         <Col md={10} lg={7} xl={5}>
           {/* Quick Demo Access Bar */}
@@ -125,7 +125,7 @@ const Login = () => {
               <Button
                 variant="outline-warning"
                 size="sm"
-                className="py-1 px-3"
+                className="py-1 px-3 w-100 w-sm-auto"
                 onClick={() => {
                   setActiveTab("login");
                   cargarCredencialesDemo("admin");
@@ -136,7 +136,7 @@ const Login = () => {
               <Button
                 variant="outline-info"
                 size="sm"
-                className="py-1 px-3"
+                className="py-1 px-3 w-100 w-sm-auto"
                 onClick={() => {
                   setActiveTab("login");
                   cargarCredencialesDemo("user");
@@ -148,13 +148,13 @@ const Login = () => {
           </div>
 
           {/* Main Epic Auth Card */}
-          <Card className="epic-box p-4 border-0 shadow">
+          <Card className="epic-box p-3 p-sm-4 border-0 shadow">
             <div className="text-center mb-4">
               <div className="epic-logo-badge mb-3 mx-auto">
                 <i className="bi bi-controller fs-4 text-dark"></i>
               </div>
-              <h2 className="fs-4 fw-bold text-white mb-1">
-                {activeTab === "login" ? "INICIAR SESIÓN CON EPIC GAMES" : "CREAR CUENTA DE EPIC GAMES"}
+              <h2 className="fs-5 fs-sm-4 fw-bold text-white mb-1">
+                {activeTab === "login" ? "INICIAR SESIÓN EN ROLLING GAMER" : "CREAR CUENTA EN ROLLING GAMER"}
               </h2>
               <p className="text-muted small">
                 Accede a tu biblioteca de juegos, compras y lista de deseos

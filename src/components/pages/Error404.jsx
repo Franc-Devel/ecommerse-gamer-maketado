@@ -16,7 +16,7 @@ const Error404 = () => {
         </h2>
 
         <p className="text-muted small mb-4">
-          Lo sentimos, no pudimos encontrar la página que buscas en Epic Games Store. Es posible que el enlace esté desactualizado o que el juego haya sido retirado de la tienda.
+          Lo sentimos, no pudimos encontrar la página que buscas en ROLLING GAMER. Es posible que el enlace esté desactualizado o que el juego haya sido retirado de la tienda.
         </p>
 
         <div className="d-flex justify-content-center gap-3">

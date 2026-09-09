@@ -454,3 +454,168 @@ main {
   border-top: 1px solid var(--epic-border);
   color: var(--epic-text-muted);
 }
+
+/* ==========================================================================
+   MOBILE & RESPONSIVE DESIGN ENHANCEMENTS
+   ========================================================================== */
+
+/* Prevent any accidental horizontal scrollbar */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Category pills horizontal scroll for mobile */
+.epic-category-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.epic-category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.epic-category-scroll .epic-filter-pill {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Mobile Hero Dot Indicators */
+.epic-hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.epic-hero-dot.active {
+  width: 28px;
+  border-radius: 6px;
+  background: var(--epic-blue);
+  box-shadow: 0 0 10px var(--epic-blue-glow);
+}
+
+/* Mobile Navbar drawer styling */
+@media (max-width: 991px) {
+  .epic-navbar .navbar-collapse {
+    background: #18181c;
+    border-radius: var(--epic-radius);
+    border: 1px solid var(--epic-border);
+    padding: 1rem;
+    margin-top: 0.75rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .epic-nav-link {
+    padding: 0.75rem 1rem !important;
+    border-radius: var(--epic-radius-sm);
+  }
+
+  .epic-nav-link.active {
+    background: rgba(0, 120, 242, 0.15);
+    border-bottom: none;
+    border-left: 3px solid var(--epic-blue);
+  }
+}
+
+/* Tablet & Large Phone Adjustments (max-width: 991px) */
+@media (max-width: 991px) {
+  .epic-hero-main {
+    height: 400px;
+  }
+}
+
+/* Standard Mobile Phone Adjustments (max-width: 768px) */
+@media (max-width: 768px) {
+  .epic-hero-main {
+    height: 360px;
+  }
+
+  .epic-hero-overlay {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .epic-hero-overlay h1 {
+    font-size: 1.65rem !important;
+  }
+
+  .btn-epic-primary, .btn-epic-secondary {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
+    min-height: 42px;
+  }
+
+  .epic-box {
+    border-radius: var(--epic-radius-sm);
+  }
+}
+
+/* Compact Mobile Screens (max-width: 576px) */
+@media (max-width: 576px) {
+  .epic-hero-main {
+    height: 330px;
+  }
+
+  .epic-hero-overlay {
+    padding: 1.25rem 1rem;
+  }
+
+  .epic-hero-overlay h1 {
+    font-size: 1.45rem !important;
+  }
+
+  .epic-subheading {
+    font-size: 0.7rem;
+    letter-spacing: 0.6px;
+  }
+
+  /* Catalog card adjustments for 2-column mobile layout */
+  .epic-card-media {
+    aspect-ratio: 3 / 4;
+  }
+
+  .epic-wishlist-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+    top: 6px;
+    right: 6px;
+  }
+
+  /* Compact spacing on small phones */
+  .epic-box {
+    padding: 1rem !important;
+  }
+
+  /* Product detail specs single column */
+  .epic-specs-col {
+    padding: 1rem;
+  }
+}
+
+/* Ultra-compact screens (e.g., iPhone SE 320px-360px) */
+@media (max-width: 360px) {
+  .epic-hero-main {
+    height: 310px;
+  }
+
+  .epic-hero-overlay h1 {
+    font-size: 1.25rem !important;
+  }
+
+  .btn-epic-primary, .btn-epic-secondary {
+    padding: 0.65rem 1rem;
+    font-size: 0.75rem;
+  }
+}

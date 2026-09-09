@@ -129,6 +129,19 @@ const Inicio = ({ juegos }) => {
                 </div>
               </Col>
 
+              {/* Mobile Indicators under hero */}
+              <div className="d-flex d-lg-none justify-content-center align-items-center gap-2 mt-3">
+                {juegosDestacados.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className={`epic-hero-dot ${idx === indiceDestacado ? "active" : ""}`}
+                    onClick={() => setIndiceDestacado(idx)}
+                    aria-label={`Ir al juego destacado ${idx + 1}`}
+                  />
+                ))}
+              </div>
+
               {/* Right: Vertical Carousel Playlist (Signature Epic Games feature) */}
               <Col lg={3} className="d-none d-lg-flex flex-column justify-content-between">
                 {juegosDestacados.map((item, idx) => {
@@ -165,7 +178,7 @@ const Inicio = ({ juegos }) => {
 
         {/* Epic Filter & Search Section */}
         <div className="mb-4">
-          <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-3">
+          <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-3 mb-3">
             <div>
               <h2 className="fs-4 fw-bold text-white mb-0">
                 Catálogo de Juegos
@@ -175,9 +188,9 @@ const Inicio = ({ juegos }) => {
               </span>
             </div>
 
-            {/* Search Bar in Epic Style */}
-            <div className="d-flex align-items-center gap-3 w-100 w-md-auto" style={{ maxWidth: "450px" }}>
-              <div className="position-relative flex-grow-1">
+            {/* Search Bar & Sort in Responsive Layout */}
+            <div className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 w-100 w-lg-auto">
+              <div className="position-relative flex-grow-1" style={{ minWidth: "220px" }}>
                 <i className="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
                 <Form.Control
                   type="text"
@@ -201,8 +214,8 @@ const Inicio = ({ juegos }) => {
               <Form.Select
                 value={orden}
                 onChange={(e) => setOrden(e.target.value)}
-                className="epic-input"
-                style={{ width: "160px" }}
+                className="epic-input flex-shrink-0"
+                style={{ minWidth: "160px" }}
               >
                 <option value="destacados">Destacados</option>
                 <option value="menor-precio">Precio: Menor</option>
@@ -213,8 +226,8 @@ const Inicio = ({ juegos }) => {
             </div>
           </div>
 
-          {/* Epic Category Tabs */}
-          <div className="d-flex flex-wrap gap-1 pb-2 border-bottom border-secondary border-opacity-25 mb-4">
+          {/* Epic Category Tabs with Smooth Horizontal Scroll on Mobile */}
+          <div className="epic-category-scroll pb-2 border-bottom border-secondary border-opacity-25 mb-4">
             {CATEGORIAS.map((cat) => (
               <button
                 key={cat}
@@ -240,7 +253,7 @@ const Inicio = ({ juegos }) => {
             <i className="bi bi-search text-muted display-4 mb-3 d-block"></i>
             <h4 className="fw-bold text-white mb-2">No se encontraron resultados</h4>
             <p className="text-muted small mb-4">
-              No hay títulos que coincidan con tu búsqueda en la tienda de Epic Games.
+              No hay títulos que coincidan con tu búsqueda en la tienda de ROLLING GAMER.
             </p>
             <Button
               className="btn-epic-secondary"
